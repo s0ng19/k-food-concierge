@@ -872,6 +872,105 @@
     .mb-6 { margin-bottom: 1.5rem; }
     .pb-32 { padding-bottom: 8rem; }
     .text-right { text-align: right; }
+
+    /* WeChat Widget */
+    .wechat-floating-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .wechat-floating-btn:hover { transform: scale(1.1); }
+    
+    .wechat-floating-btn img {
+        width: 65px; height: 65px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        display: block;
+    }
+
+    .wechat-popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+    }
+
+    .wechat-popup-content {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .agents-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 25px 0;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .agent-box {
+        text-align: center;
+        padding: 10px;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .agent-box img {
+        width: 150px; height: 150px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .agent-name { 
+        font-weight: bold; font-size: 1.1rem; color: #333; margin-bottom: 8px;
+    }
+
+    .app-link-btn {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 0.85rem;
+        border: 1px solid #ccc;
+        transition: 0.2s;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .app-link-btn:hover {
+        background-color: #07C160;
+        color: white;
+        border-color: #07C160;
+    }
+
+    .close-popup-btn {
+        padding: 10px 35px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -1200,6 +1299,37 @@
     </div>
   </div>
 
+  <!-- WeChat Widget HTML -->
+  <div class="wechat-floating-btn" onclick="toggleWeChatPopup()">
+      <img src="https://placehold.co/65x65/07C160/ffffff?text=WeChat" alt="WeChat 문의">
+  </div>
+
+  <div id="wechatOverlay" class="wechat-popup-overlay" onclick="toggleWeChatPopup()">
+      <div class="wechat-popup-content" onclick="event.stopPropagation()">
+          
+          <h2 style="margin-top: 0; color: #07C160;">WeChat 고객 상담</h2>
+          <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">
+              QR 코드를 스캔하거나 아래 버튼을 눌러 앱을 실행하세요.
+          </p>
+          
+          <div class="agents-wrapper">
+              <div class="agent-box">
+                  <img src="https://placehold.co/150x150/eee/333?text=QR+Code+A" alt="상담원 A QR">
+                  <div class="agent-name">김담당 매니저</div>
+                  <a href="weixin://" class="app-link-btn">📲 위챗 앱 실행</a>
+              </div>
+
+              <div class="agent-box">
+                  <img src="https://placehold.co/150x150/eee/333?text=QR+Code+B" alt="상담원 B QR">
+                  <div class="agent-name">이담당 매니저</div>
+                  <a href="weixin://" class="app-link-btn">📲 위챗 앱 실행</a>
+              </div>
+          </div>
+
+          <button class="close-popup-btn" onclick="toggleWeChatPopup()">닫기</button>
+      </div>
+  </div>
+
   <script>
     // State
     let orderData = {
@@ -1446,6 +1576,18 @@
       document.getElementById('note').value = '';
       removeImage();
       showStep('hero');
+    }
+
+    // WeChat Popup Logic
+    function toggleWeChatPopup() {
+        var overlay = document.getElementById('wechatOverlay');
+        if (overlay.style.display === 'block') {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        } else {
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
     }
   </script>
 </body>
