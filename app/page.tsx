@@ -21,7 +21,7 @@ export interface OrderData {
 export default function Home() {
   const [step, setStep] = useState<OrderStep>("hero");
   const [orderData, setOrderData] = useState<OrderData>({
-    city: "",
+    city: "서울", // Seoul fixed for initial launch
     items: [],
     deliveryAddress: "",
     wechatId: "",
@@ -46,7 +46,7 @@ export default function Home() {
   const handleReset = () => {
     setStep("hero");
     setOrderData({
-      city: "",
+      city: "서울",
       items: [],
       deliveryAddress: "",
       wechatId: "",
@@ -56,13 +56,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background">
-      {step === "hero" && <HeroSection onStart={() => setStep("city")} />}
-      {step === "city" && <CitySelector onSelect={handleCitySelect} onBack={() => setStep("hero")} />}
+      {step === "hero" && <HeroSection onStart={() => setStep("menu")} />}
       {step === "menu" && (
         <MenuSelector
           city={orderData.city}
           onSelect={handleMenuSelect}
-          onBack={() => setStep("city")}
+          onBack={() => setStep("hero")}
         />
       )}
       {step === "order" && (

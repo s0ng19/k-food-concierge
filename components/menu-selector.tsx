@@ -17,7 +17,7 @@ const menuItems = [
     nameKo: "후라이드 치킨",
     description: "Extra crispy Korean-style golden fried chicken.",
     price: 18000,
-    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/2232433/pexels-photo-2232433.jpeg?auto=compress&cs=tinysrgb&w=800",
     tag: "Best"
   },
   {
@@ -26,7 +26,7 @@ const menuItems = [
     nameKo: "양념 치킨",
     description: "Glazed in Korea's famous sweet and tangy chili sauce.",
     price: 19000,
-    image: "https://images.unsplash.com/photo-1626645738196-c2a7c8d38f58?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/5836628/pexels-photo-5836628.jpeg?auto=compress&cs=tinysrgb&w=800",
     tag: "Hot"
   },
   {
@@ -35,7 +35,7 @@ const menuItems = [
     nameKo: "간장 마늘 치킨",
     description: "Perfect balance of savory soy and roasted garlic.",
     price: 19000,
-    image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/6210876/pexels-photo-6210876.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "half-half",
@@ -43,7 +43,7 @@ const menuItems = [
     nameKo: "반반 치킨",
     description: "Can't decide? Get both Original and Yangnyeom!",
     price: 20000,
-    image: "https://images.unsplash.com/photo-1569058242253-92a9c71f9867?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "honey-butter-chicken",
@@ -51,7 +51,7 @@ const menuItems = [
     nameKo: "허니버터 치킨",
     description: "Sweet honey glaze with savory butter powder.",
     price: 22000,
-    image: "https://images.unsplash.com/photo-1614398751058-eb2e0bf63e53?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
 ];
 
@@ -108,7 +108,7 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
       <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-16">
         <div className="space-y-4 text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
-            2단계 <span className="text-muted-foreground">/ 3단계</span>
+            1단계 <span className="text-muted-foreground">/ 2단계</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             무엇을 드실래요?

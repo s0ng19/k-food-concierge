@@ -89,7 +89,7 @@ export function OrderForm({ orderData, onSubmit, onBack }: OrderFormProps) {
       <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-16">
         <div className="space-y-4 text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
-            3단계 <span className="text-muted-foreground">/ 3단계</span>
+            2단계 <span className="text-muted-foreground">/ 2단계</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             배송 정보 입력

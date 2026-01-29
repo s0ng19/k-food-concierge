@@ -10,29 +10,21 @@ interface HeroSectionProps {
 export function HeroSection({ onStart }: HeroSectionProps) {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2070&auto=format&fit=crop")',
-          filter: 'brightness(0.7)'
-        }}
-      />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-transparent to-background" />
+      {/* Clean Gradient Background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-primary/30" />
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/10 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/50 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold tracking-tighter text-white">
-              CREA<span className="text-primary">TRIP</span>-STYLE
+              K-<span className="text-primary">Delivery</span>
             </span>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
-            <span className="hover:text-white cursor-pointer transition-colors">여행지</span>
-            <span className="hover:text-white cursor-pointer transition-colors">숙소</span>
-            <span className="hover:text-white cursor-pointer transition-colors">트렌드</span>
-            <span className="hover:text-white cursor-pointer transition-colors">언어</span>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+            <span className="hover:text-white cursor-pointer transition-colors">서비스 안내</span>
+            <span className="hover:text-white cursor-pointer transition-colors">메뉴</span>
+            <span className="hover:text-white cursor-pointer transition-colors">문의</span>
           </nav>
           <Button
             variant="default"
@@ -81,16 +73,16 @@ export function HeroSection({ onStart }: HeroSectionProps) {
         <div className="mt-32 w-full max-w-5xl mx-auto pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <FeatureCard
-              title="도시 선택"
-              subtitle="Where are you in Korea?"
-              description="현재 계신 한국 도시를 선택하여 지역별 인기 메뉴를 확인하세요."
-              icon="📍"
-            />
-            <FeatureCard
               title="메뉴 선택"
               subtitle="Authentic Korean Flavors"
               description="한국인들이 사랑하는 가장 인기 있는 메뉴들을 둘러보세요."
               icon="😋"
+            />
+            <FeatureCard
+              title="주문하기"
+              subtitle="Quick & Easy Ordering"
+              description="간단한 정보 입력만으로 주문을 완료할 수 있어요."
+              icon="📝"
             />
             <FeatureCard
               title="쉬운 결제"
