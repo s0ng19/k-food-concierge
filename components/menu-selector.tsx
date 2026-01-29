@@ -198,8 +198,8 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
 
       {/* Floating Bottom Bar */}
       {totalItems > 0 && (
-        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-lg z-50">
-          <div className="bg-foreground text-background rounded-full p-4 shadow-2xl flex items-center justify-between backdrop-blur-md bg-opacity-90 border border-white/20 animate-in slide-in-from-bottom-10">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-lg z-[9999]">
+          <div className="bg-foreground text-background rounded-full p-4 shadow-2xl flex items-center justify-between backdrop-blur-md bg-opacity-95 border border-white/20 animate-in slide-in-from-bottom-10 duration-300">
             <div className="pl-6">
               <p className="text-[10px] font-black uppercase tracking-widest opacity-60">
                 {totalItems}개 상품 선택됨
@@ -211,7 +211,7 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
               className="rounded-full h-14 px-8 bg-primary hover:bg-primary/90 text-white font-black gap-2 group"
               onClick={handleContinue}
             >
-              확인
+              다음 단계로
               <ChevronLeft className="h-5 w-5 rotate-180 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
