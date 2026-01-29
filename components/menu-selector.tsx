@@ -12,46 +12,47 @@ interface MenuSelectorProps {
 
 const menuItems = [
   {
-    id: "fried-chicken",
-    name: "Classic Fried Chicken",
-    nameKo: "후라이드 치킨",
-    description: "Extra crispy Korean-style golden fried chicken.",
-    price: 18000,
-    image: "https://images.pexels.com/photos/2232433/pexels-photo-2232433.jpeg?auto=compress&cs=tinysrgb&w=800",
+    id: "bbq-ppum",
+    name: "BBQ Cheese Powder",
+    nameKo: "BBQ 뿜치킨",
+    description: "바삭한 치킨 위에 진한 치즈 파우더를 듬뿍! BBQ만의 시그니처 치즈 치킨.",
+    price: 22000,
+    image: "/menu-3.jpg",
+    tag: "New"
+  },
+  {
+    id: "bbq-olive",
+    name: "BBQ Golden Olive",
+    nameKo: "BBQ 황금올리브",
+    description: "100% 올리브유로 튀겨낸 담백하고 바삭한 프리미엄 후라이드. BBQ 대표 메뉴!",
+    price: 20000,
+    image: "/menu-4.jpg",
     tag: "Best"
   },
   {
-    id: "yangnyeom-chicken",
-    name: "Sweet & Spicy (Yangnyeom)",
-    nameKo: "양념 치킨",
-    description: "Glazed in Korea's famous sweet and tangy chili sauce.",
-    price: 19000,
-    image: "https://images.pexels.com/photos/5836628/pexels-photo-5836628.jpeg?auto=compress&cs=tinysrgb&w=800",
+    id: "bhc-ppuring",
+    name: "BHC Ppurinkle",
+    nameKo: "BHC 뿌링클",
+    description: "달콤한 치즈 시즈닝을 뿌린 BHC 인기 메뉴. 특제 뿌링 소스와 함께!",
+    price: 21000,
+    image: "/menu-1.png",
+  },
+  {
+    id: "bhc-makcho",
+    name: "BHC Mak Choking",
+    nameKo: "BHC 막초킹",
+    description: "마늘 간장 소스에 파채와 청양고추를 더한 매콤달콤한 갈릭 치킨.",
+    price: 21000,
+    image: "/menu-5.png",
     tag: "Hot"
   },
   {
-    id: "soy-garlic-chicken",
-    name: "Soy Garlic Glazed",
-    nameKo: "간장 마늘 치킨",
-    description: "Perfect balance of savory soy and roasted garlic.",
-    price: 19000,
-    image: "https://images.pexels.com/photos/6210876/pexels-photo-6210876.jpeg?auto=compress&cs=tinysrgb&w=800",
-  },
-  {
-    id: "half-half",
-    name: "Half & Half (Banban)",
-    nameKo: "반반 치킨",
-    description: "Can't decide? Get both Original and Yangnyeom!",
-    price: 20000,
-    image: "https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=800",
-  },
-  {
-    id: "honey-butter-chicken",
-    name: "Honey Butter Snow",
-    nameKo: "허니버터 치킨",
-    description: "Sweet honey glaze with savory butter powder.",
+    id: "kyochon-red",
+    name: "Kyochon Red Combo",
+    nameKo: "교촌 레드콤보",
+    description: "교촌만의 비법 레드 양념 소스! 달콤하고 매콤한 국민 양념 치킨. 무와 함께 제공.",
     price: 22000,
-    image: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/menu-2.jpg",
   },
 ];
 
@@ -141,7 +142,7 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
                     {item.tag && (
                       <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest">
                         {/* @ts-ignore */}
-                        {item.tag === "Best" ? "베스트" : item.tag === "Hot" ? "인기" : item.tag}
+                        {item.tag === "Best" ? "베스트" : item.tag === "Hot" ? "인기" : item.tag === "New" ? "신메뉴" : item.tag}
                       </div>
                     )}
                     {qty > 0 && (
