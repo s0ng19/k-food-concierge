@@ -13,51 +13,45 @@ interface MenuSelectorProps {
 const menuItems = [
   {
     id: "fried-chicken",
-    name: "Fried Chicken",
+    name: "Classic Fried Chicken",
     nameKo: "후라이드 치킨",
-    description: "바삭바삭한 한국식 클래식 후라이드 치킨",
+    description: "Extra crispy Korean-style golden fried chicken.",
     price: 18000,
-    image: "🍗",
+    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop",
+    tag: "Best"
   },
   {
     id: "yangnyeom-chicken",
-    name: "Yangnyeom Chicken",
+    name: "Sweet & Spicy (Yangnyeom)",
     nameKo: "양념 치킨",
-    description: "달콤 매콤한 양념소스, 한국에서 가장 인기있는 치킨",
+    description: "Glazed in Korea's famous sweet and tangy chili sauce.",
     price: 19000,
-    image: "🍗",
+    image: "https://images.unsplash.com/photo-1626645738196-c2a7c8d38f58?q=80&w=800&auto=format&fit=crop",
+    tag: "Hot"
   },
   {
     id: "soy-garlic-chicken",
-    name: "Soy Garlic Chicken",
+    name: "Soy Garlic Glazed",
     nameKo: "간장 마늘 치킨",
-    description: "간장과 마늘의 조화, 짭짤하고 달콤한 맛",
+    description: "Perfect balance of savory soy and roasted garlic.",
     price: 19000,
-    image: "🍗",
+    image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "half-half",
-    name: "Half & Half",
+    name: "Half & Half (Banban)",
     nameKo: "반반 치킨",
-    description: "후라이드 반, 양념 반으로 두 가지 맛을 한 번에",
+    description: "Can't decide? Get both Original and Yangnyeom!",
     price: 20000,
-    image: "🍗",
+    image: "https://images.unsplash.com/photo-1569058242253-92a9c71f9867?q=80&w=800&auto=format&fit=crop",
   },
   {
-    id: "cheese-chicken",
-    name: "Cheese Chicken",
-    nameKo: "치즈 치킨",
-    description: "진한 치즈 소스와 함께, 치즈 러버들의 선택",
+    id: "honey-butter-chicken",
+    name: "Honey Butter Snow",
+    nameKo: "허니버터 치킨",
+    description: "Sweet honey glaze with savory butter powder.",
     price: 22000,
-    image: "🧀",
-  },
-  {
-    id: "spicy-chicken",
-    name: "Spicy Chicken",
-    nameKo: "매운 치킨",
-    description: "한국식 매운 양념, 매운맛을 좋아하시는 분들에게 추천",
-    price: 19000,
-    image: "🌶️",
+    image: "https://images.unsplash.com/photo-1614398751058-eb2e0bf63e53?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -96,90 +90,105 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pb-32">
+    <div className="min-h-screen flex flex-col pb-40 bg-background animate-in fade-in duration-500">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
-        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Button variant="ghost" size="sm" onClick={onBack} className="gap-1 -ml-2">
-            <ChevronLeft className="h-4 w-4" />
+      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border">
+        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 font-bold text-muted-foreground hover:text-foreground">
+            <ChevronLeft className="h-5 w-5" />
             뒤로
           </Button>
-          <span className="text-sm text-muted-foreground">{city}</span>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-xs font-bold text-muted-foreground uppercase tracking-tight">
+            📍 {city}
+          </div>
         </div>
       </header>
 
       {/* Content */}
-      <div className="flex-1 max-w-3xl mx-auto w-full px-6 py-12">
-        <div className="space-y-2">
-          <p className="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-            2단계 / 3단계
-          </p>
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-            치킨 메뉴를 선택하세요
+      <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-16">
+        <div className="space-y-4 text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+            2단계 <span className="text-muted-foreground">/ 3단계</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            무엇을 드실래요?
           </h1>
-          <p className="text-muted-foreground">
-            원하시는 한국 치킨을 골라주세요
+          <p className="text-xl text-muted-foreground max-w-lg mx-auto font-medium">
+            한국인들이 가장 즐겨 먹는 인기 메뉴들을 모아봤어요.
           </p>
         </div>
 
         {/* Menu Grid */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {menuItems.map((item) => {
             const qty = quantities[item.id] || 0;
             return (
               <div
                 key={item.id}
-                className={`p-6 rounded-2xl border transition-all ${
-                  qty > 0
-                    ? "border-primary bg-primary/5"
-                    : "border-border bg-secondary/30 hover:bg-secondary/50"
-                }`}
+                className={`group flex flex-col overflow-hidden rounded-[2rem] border-2 transition-all duration-300 ${qty > 0
+                  ? "border-primary bg-primary/5 shadow-lg scale-[1.02]"
+                  : "border-border bg-white hover:border-primary/50 hover:shadow-xl"
+                  }`}
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <span className="text-3xl">{item.image}</span>
-                    <h3 className="mt-3 font-semibold">{item.nameKo}</h3>
-                    <p className="text-sm text-muted-foreground">{item.name}</p>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                    <p className="mt-3 text-lg font-semibold">
-                      ₩{item.price.toLocaleString()}
-                    </p>
-                  </div>
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* @ts-ignore */}
+                  {item.tag && (
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest">
+                      {/* @ts-ignore */}
+                      {item.tag === "Best" ? "베스트" : item.tag === "Hot" ? "인기" : item.tag}
+                    </div>
+                  )}
+                  {qty > 0 && (
+                    <div className="absolute top-4 right-4 h-10 w-10 flex items-center justify-center rounded-full bg-primary text-white font-bold animate-in scale-in">
+                      {qty}
+                    </div>
+                  )}
                 </div>
 
-                <div className="mt-4 flex items-center justify-end gap-3">
-                  {qty > 0 ? (
-                    <>
+                <div className="p-8 space-y-4 flex-1 flex flex-col">
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-foreground">{item.nameKo}</h3>
+                    <p className="font-bold text-muted-foreground uppercase tracking-tight text-sm">{item.name}</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-medium">
+                    {item.description}
+                  </p>
+                  <div className="pt-4 mt-auto flex items-center justify-between">
+                    <p className="text-2xl font-black text-foreground">
+                      ₩{item.price.toLocaleString()}
+                    </p>
+                    <div className="flex items-center gap-4">
+                      {qty > 0 && (
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          className="h-10 w-10 rounded-full shadow-md"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            updateQuantity(item.id, -1);
+                          }}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                      )}
                       <Button
-                        variant="outline"
-                        size="icon"
-                        className="h-8 w-8 rounded-full bg-transparent"
-                        onClick={() => updateQuantity(item.id, -1)}
+                        variant={qty > 0 ? "default" : "secondary"}
+                        size={qty > 0 ? "icon" : "sm"}
+                        className={`h-10 rounded-full font-extrabold ${qty > 0 ? "w-10 shadow-lg" : "px-6 hover:bg-primary hover:text-white transition-colors"}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          updateQuantity(item.id, 1);
+                        }}
                       >
-                        <Minus className="h-4 w-4" />
+                        {qty > 0 ? <Plus className="h-4 w-4" /> : "담기"}
                       </Button>
-                      <span className="w-8 text-center font-semibold">{qty}</span>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="h-8 w-8 rounded-full bg-transparent"
-                        onClick={() => updateQuantity(item.id, 1)}
-                      >
-                        <Plus className="h-4 w-4" />
-                      </Button>
-                    </>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="rounded-full bg-transparent"
-                      onClick={() => updateQuantity(item.id, 1)}
-                    >
-                      추가
-                    </Button>
-                  )}
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -187,19 +196,23 @@ export function MenuSelector({ city, onSelect, onBack }: MenuSelectorProps) {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Floating Bottom Bar */}
       {totalItems > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-xl border-t border-border p-4">
-          <div className="max-w-3xl mx-auto flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">
-                {totalItems}개 상품
+        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-lg z-50">
+          <div className="bg-foreground text-background rounded-full p-4 shadow-2xl flex items-center justify-between backdrop-blur-md bg-opacity-90 border border-white/20 animate-in slide-in-from-bottom-10">
+            <div className="pl-6">
+              <p className="text-[10px] font-black uppercase tracking-widest opacity-60">
+                {totalItems}개 상품 선택됨
               </p>
-              <p className="text-xl font-semibold">₩{totalPrice.toLocaleString()}</p>
+              <p className="text-2xl font-bold">₩{totalPrice.toLocaleString()}</p>
             </div>
-            <Button size="lg" className="rounded-full gap-2" onClick={handleContinue}>
-              <ShoppingBag className="h-5 w-5" />
-              계속하기
+            <Button
+              size="lg"
+              className="rounded-full h-14 px-8 bg-primary hover:bg-primary/90 text-white font-black gap-2 group"
+              onClick={handleContinue}
+            >
+              확인
+              <ChevronLeft className="h-5 w-5 rotate-180 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>

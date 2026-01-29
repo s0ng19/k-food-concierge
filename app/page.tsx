@@ -6,6 +6,7 @@ import { CitySelector } from "@/components/city-selector";
 import { MenuSelector } from "@/components/menu-selector";
 import { OrderForm } from "@/components/order-form";
 import { OrderComplete } from "@/components/order-complete";
+import { WeChatContact } from "@/components/wechat-contact";
 
 export type OrderStep = "hero" | "city" | "menu" | "order" | "complete";
 
@@ -72,6 +73,9 @@ export default function Home() {
         />
       )}
       {step === "complete" && <OrderComplete orderData={orderData} onReset={handleReset} />}
+
+      {/* Floating WeChat Contact */}
+      <WeChatContact />
     </main>
   );
 }
