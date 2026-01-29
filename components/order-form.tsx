@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"
+import React, { useEffect } from "react"
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,11 @@ export function OrderForm({ orderData, onSubmit, onBack }: OrderFormProps) {
   const [note, setNote] = useState("");
   const [addressImage, setAddressImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleImageUpload = (file: File) => {
     if (file && file.type.startsWith("image/")) {

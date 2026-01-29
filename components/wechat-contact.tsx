@@ -26,16 +26,16 @@ export function WeChatContact() {
             {/* Floating Button */}
             <button
                 onClick={togglePopup}
-                className="fixed bottom-8 right-8 z-[9999] group transition-transform hover:scale-110 active:scale-95"
+                className="fixed bottom-6 right-4 z-[9999] group transition-transform hover:scale-110 active:scale-95"
                 aria-label="WeChat 문의"
             >
                 <div className="relative">
-                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/30 transition-all" />
-                    <div className="relative h-16 w-16 bg-[#07C160] rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
-                        <MessageCircle className="h-8 w-8 text-white" />
+                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg group-hover:bg-primary/30 transition-all" />
+                    <div className="relative h-12 w-12 bg-[#07C160] rounded-full flex items-center justify-center shadow-xl border-2 border-white">
+                        <MessageCircle className="h-6 w-6 text-white" />
                     </div>
-                    <div className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 rounded-full border-2 border-white flex items-center justify-center">
-                        <span className="block h-2 w-2 bg-white rounded-full animate-pulse" />
+                    <div className="absolute -top-0.5 -right-0.5 h-4 w-4 bg-red-500 rounded-full border-2 border-white flex items-center justify-center">
+                        <span className="block h-1.5 w-1.5 bg-white rounded-full animate-pulse" />
                     </div>
                 </div>
             </button>

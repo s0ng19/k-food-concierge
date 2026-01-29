@@ -24,7 +24,6 @@ export function HeroSection({ onStart }: HeroSectionProps) {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
             <span className="hover:text-white cursor-pointer transition-colors">서비스 안내</span>
             <span className="hover:text-white cursor-pointer transition-colors">메뉴</span>
-            <span className="hover:text-white cursor-pointer transition-colors">문의</span>
           </nav>
           <Button
             variant="default"
@@ -59,37 +58,6 @@ export function HeroSection({ onStart }: HeroSectionProps) {
               주문 시작하기
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="h-16 px-10 text-lg rounded-full bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 hover:scale-105 transition-all"
-            >
-              서비스 더 알아보기
-            </Button>
-          </div>
-        </div>
-
-        {/* Features Overlay */}
-        <div className="mt-32 w-full max-w-5xl mx-auto pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <FeatureCard
-              title="메뉴 선택"
-              subtitle="Authentic Korean Flavors"
-              description="한국인들이 사랑하는 가장 인기 있는 메뉴들을 둘러보세요."
-              icon="😋"
-            />
-            <FeatureCard
-              title="주문하기"
-              subtitle="Quick & Easy Ordering"
-              description="간단한 정보 입력만으로 주문을 완료할 수 있어요."
-              icon="📝"
-            />
-            <FeatureCard
-              title="쉬운 결제"
-              subtitle="Global Payment Methods"
-              description="위챗페이, 알리페이, 또는 국제 카드로 간편하게 결제하세요."
-              icon="💳"
-            />
           </div>
         </div>
       </div>
@@ -108,27 +76,6 @@ export function HeroSection({ onStart }: HeroSectionProps) {
           </div>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function FeatureCard({
-  title,
-  subtitle,
-  description,
-  icon,
-}: {
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: string;
-}) {
-  return (
-    <div className="group p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-2xl font-bold text-foreground">{title}</h3>
-      <p className="text-sm font-bold text-primary mt-1 uppercase tracking-wider">{subtitle}</p>
-      <p className="mt-4 text-muted-foreground leading-relaxed font-medium">{description}</p>
     </div>
   );
 }
